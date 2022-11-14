@@ -24,35 +24,35 @@ function play_round(player_choice , computer){
     game_over = false;
     Player_score = 0;
     Computer_score = 0;
-    if (player_choice === computer){
+    if (player_choice?.toLowerCase() === computer?.toLowerCase()){
         console.log("This round is a Tie!");
     }
-    else if (player_choice === "Rock" && computer === "Paper"){
+    else if (player_choice?.toLowerCase() === "Rock" && computer?.toLowerCase() === "Paper"){
         console.log("Paper beats Rock computer wins! ");
         Computer_score++;
         console.log("The computer's score is " + Computer_score);
     }
-    else if (player_choice === "Paper" && computer === "Rock"){
+    else if (player_choice?.toLowerCase() === "Paper" && computer?.toLowerCase() === "Rock"){
         console.log("Paper beats Rock Player wins! ");
         Player_score++;
         console.log(Player_score);
     }
-    else if (player_choice === "Rock" && computer === "Scissors"){
+    else if (player_choice?.toLowerCase() === "Rock" && computer?.toLowerCase() === "Scissors"){
         console.log("Rock beats Scissors Player wins! ");
         Player_score++;
         console.log(Player_score);
     }
-    else if (player_choice === "Scissors" && computer === "Rock"){
+    else if (player_choice?.toLowerCase() === "Scissors" && computer?.toLowerCase() === "Rock"){
         console.log("Rock beats Scissors computer wins! ");
         Computer_score++;
         console.log(Computer_score);
     }
-    else if (player_choice === "Paper" && computer === "Scissors"){
+    else if (player_choice?.toLowerCase() === "Paper" && computer?.toLowerCase() === "Scissors"){
         console.log("Scissors beats Paper computer wins! ");
         Computer_score++;
         console.log(Computer_score);
     }
-    else if (player_choice === "Scissors" && computer === "Paper"){
+    else if (player_choice?.toLowerCase() === "Scissors" && computer?.toLowerCase() === "Paper"){
         console.log("Scissors beats Paper Player wins! ");
         Player_score++;
         console.log(Player_score);
