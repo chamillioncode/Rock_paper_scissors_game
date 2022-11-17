@@ -9,57 +9,46 @@ while (player_choice != ("Rock"|| "Paper"||"Scissors")){
 console.log("We are out of The loop now !");
 
 */
-const choices = ["Rock","Paper","Scissors"];
-
-
-
-function Computer_Choice(){
-    return choices[Math.floor(Math.random() * choices.length)];
-
+const choices = ["rock", "paper", "scissors"];
+ 
+function computerChoice() {
+  return choices[Math.floor(Math.random() * choices.length)];
 }
-let player_choice = prompt("What is your pick?  Rock  Paper or Scissors");
-
-
-function play_round(player_choice , computer){
-    game_over = false;
-    Player_score = 0;
-    Computer_score = 0;
-    if (player_choice?.toLowerCase() === computer?.toLowerCase()){
-        console.log("This round is a Tie!");
+ 
+let playerScore = 0;
+let computerScore = 0;
+ 
+function play_round() {
+  while (playerScore < 3 && computerScore < 3) {
+    const playerInput = prompt("What is your pick? Rock Paper or Scissors");
+    const player = playerInput?.toLowerCase();
+    const computer = computerChoice().toLowerCase();
+    if (player !== 'rock' && player !== 'scissors' && player !== 'paper') {
+      console.log('Player input must be either rock, paper, or scissors');
+      continue;
     }
-    else if (player_choice?.toLowerCase() === "Rock" && computer?.toLowerCase() === "Paper"){
-        console.log("Paper beats Rock computer wins! ");
-        Computer_score++;
-        console.log("The computer's score is " + Computer_score);
+    if (
+      (player === "scissors" && computer === "paper") ||
+      (player === "rock" && computer === "scissors") ||
+      (player === "paper" && computer === "rock")
+    ) {
+      console.log(`${player} vs ${computer} Player wins!`);
+      playerScore++;
     }
-    else if (player_choice?.toLowerCase() === "Paper" && computer?.toLowerCase() === "Rock"){
-        console.log("Paper beats Rock Player wins! ");
-        Player_score++;
-        console.log(Player_score);
+    if (
+      (computer === "scissors" && player === "paper") ||
+      (computer === "rock" && player === "scissors") ||
+      (computer === "paper" && player === "rock")
+    ) {
+      console.log(`${player} vs ${computer} Computer wins`);
+      computerScore++;
     }
-    else if (player_choice?.toLowerCase() === "Rock" && computer?.toLowerCase() === "Scissors"){
-        console.log("Rock beats Scissors Player wins! ");
-        Player_score++;
-        console.log(Player_score);
-    }
-    else if (player_choice?.toLowerCase() === "Scissors" && computer?.toLowerCase() === "Rock"){
-        console.log("Rock beats Scissors computer wins! ");
-        Computer_score++;
-        console.log(Computer_score);
-    }
-    else if (player_choice?.toLowerCase() === "Paper" && computer?.toLowerCase() === "Scissors"){
-        console.log("Scissors beats Paper computer wins! ");
-        Computer_score++;
-        console.log(Computer_score);
-    }
-    else if (player_choice?.toLowerCase() === "Scissors" && computer?.toLowerCase() === "Paper"){
-        console.log("Scissors beats Paper Player wins! ");
-        Player_score++;
-        console.log(Player_score);
-    }
+    console.log(`player score:${playerScore} computer score:${computerScore}`);
+  }
 }
-play_round(player_choice,Computer_Choice())
-
+play_round();
+console.log(playerScore === 3 ? 'Player Wins!' : 'Computer wins!');
+console.log("Game is over");
  /**let comp = "Computer";
 
 const choices = ["Rock","Paper","Scissors"];
